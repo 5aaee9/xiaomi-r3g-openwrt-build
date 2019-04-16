@@ -11,5 +11,5 @@ RUN apt-get update && \
     ./scripts/feeds install -a  && \
     ./scripts/feeds update -a && \
     cp -rf /overlay/.config . && \
-    make -j8 V=99 && \
+    make V=99 && \
     find bin
