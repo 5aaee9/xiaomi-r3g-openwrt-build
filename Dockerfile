@@ -8,8 +8,8 @@ RUN apt-get update && \
         subversion mercurial libncurses5-dev zlib1g-dev gawk -y && \
     git clone https://github.com/openwrt/openwrt.git -b openwrt-18.06 && \
     cd openwrt && \
-    cp -rf /overlay trunk && \
-    cd trunk && \
-    ../scripts/feeds update -a && \
-    make -j8 && \
-    ls bin
+    ./scripts/feeds install -a  && \
+    ./scripts/feeds update -a && \
+    cp -rf /overlay/.config . && \
+    make -j8 V=99 && \
+    find bin
