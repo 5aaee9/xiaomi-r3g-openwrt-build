@@ -8,7 +8,7 @@ wget https://github.com/aktau/github-release/releases/download/v0.7.2/linux-amd6
 tar jxvf github-release.tar.bz2
 mv bin/linux/amd64/github-release ~
 cd ~
-rm -f git-release
+rm -rf git-release
 
 git clone https://github.com/openwrt/openwrt.git -b openwrt-18.06
 cd openwrt
