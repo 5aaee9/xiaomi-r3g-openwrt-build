@@ -8,4 +8,6 @@ RUN apt-get update && \
         subversion mercurial libncurses5-dev zlib1g-dev gawk -y && \
     useradd -m openwrt && \
     chmod -R 777 /overlay && \
-    sudo -u openwrt GITHUB_TOKEN=$GITHUB_TOKEN bash /overlay/build.sh
+    echo $GITHUB_TOKEN >> /github-token && \
+    chmod 777 /github-token && \
+    sudo -u openwrt bash /overlay/build.sh
