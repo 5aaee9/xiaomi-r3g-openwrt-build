@@ -3,9 +3,7 @@ ARG GITHUB_TOKEN
 
 COPY overlay /overlay
 
-RUN printenv && \
-    exit 0 && \
-    apt-get update && \
+RUN apt-get update && \
     apt-get install git make wget sudo \
         build-essential libssl-dev libncurses5-dev unzip \
         subversion mercurial libncurses5-dev zlib1g-dev gawk -y && \

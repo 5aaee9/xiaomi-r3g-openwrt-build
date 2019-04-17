@@ -1,9 +1,6 @@
 #!/bin/sh
 set -e
 
-GITHUB_TOKEN=`cat /github-token`
-exit 0
-
 cd ~
 mkdir git-release
 cd git-release
@@ -18,10 +15,13 @@ cd openwrt
 ./scripts/feeds install -a
 ./scripts/feeds update -a
 cp -rf /overlay/.config .
-make -j8 V=99
+
+echo "CPU Cores: "`grep -c ^processor /proc/cpuinfo`
+
+make -j`grep -c ^processor /proc/cpuinfo` V=99
 tar bin.tgz bin
 
-~/github-release upload \
+GITHUB_TOKEN=`cat /github-token` ~/github-release upload \
     --user Indexyz \
     --repo xiaomi-r3g-openwrt-build \
     --tag v0.1.0 \
