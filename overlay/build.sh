@@ -19,7 +19,7 @@ cp -rf /overlay/.config .
 echo "CPU Cores: "`grep -c ^processor /proc/cpuinfo`
 
 make -j`grep -c ^processor /proc/cpuinfo` V=99
-tar bin.tgz bin
+tar zcvf bin.tgz bin
 
 GITHUB_TOKEN=`cat /github-token` ~/github-release upload \
     --user Indexyz \
