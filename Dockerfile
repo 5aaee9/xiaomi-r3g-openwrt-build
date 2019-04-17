@@ -1,4 +1,5 @@
 FROM debian:stretch-slim
+ARG GITHUB_TOKEN
 
 COPY overlay /overlay
 
