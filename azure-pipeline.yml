@@ -1,10 +1,6 @@
 pool:
   name: Hosted Ubuntu 1604
-steps:
-- task: Docker@0
-  displayName: 'Build an image'
 
-- task: Docker@0
-  displayName: 'Push an image'
-  inputs:
-    action: 'Push an image'
+steps:
+- script: |
+  docker build -t xiaomi-r3g --build-arg GITHUB_TOKEN=$(GITHUB_TOKEN)
