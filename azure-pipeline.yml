@@ -2,5 +2,6 @@ pool:
   name: Hosted Ubuntu 1604
 
 steps:
-- script: |
-  docker build -t xiaomi-r3g --build-arg GITHUB_TOKEN=$(GITHUB_TOKEN)
+  - script: |
+      docker build -t xiaomi-r3g --build-arg GITHUB_TOKEN=$(GITHUB_TOKEN)
+    displayName: 'Complie And Release'
