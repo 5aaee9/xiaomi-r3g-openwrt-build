@@ -2,9 +2,6 @@
 set -e
 
 GITHUB_TOKEN=`cat /github-token`
-
-echo $GITHUB_TOKEN | base64
-
 exit 0
 
 cd ~
