@@ -3,5 +3,6 @@ pool:
 
 steps:
   - script: |
+      printenv
       docker build -t xiaomi-r3g --build-arg GITHUB_TOKEN=$(GITHUB_TOKEN) .
     displayName: 'Complie And Release'

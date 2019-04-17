@@ -2,7 +2,7 @@ FROM debian:stretch-slim
 
 COPY overlay /overlay
 
-RUN echo $GITHUB_TOKEN && \
+RUN printenv && \
     exit 0 && \
     apt-get update && \
     apt-get install git make wget sudo \
