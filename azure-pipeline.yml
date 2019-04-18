@@ -11,7 +11,7 @@ jobs:
         docker cp xiaomi-r3g:/home/openwrt/openwrt/bin/targets/ramips/mt7621/* releases/
       displayName: 'Complie'
 
-    - task: GitHubRelease
+    - task: GitHubRelease@0
       inputs:
         gitHubConnection: GitHub connection 1
         repositoryName: Indexyz/xiaomi-r3g-openwrt-build
