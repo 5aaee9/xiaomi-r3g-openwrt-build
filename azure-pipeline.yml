@@ -6,6 +6,18 @@ jobs:
   steps:
     - script: |
         docker build -t xiaomi-r3g --build-arg GITHUB_TOKEN=$GITHUB_TOKEN .
+        docker run -d -n xiaomi-r3g xiaomi-r3g cat
+        mkdir releases
+        docker cp xiaomi-r3g:/home/openwrt/openwrt/bin/targets/ramips/mt7621/* releases/
       displayName: 'Complie And Release'
+
+    - task: GitHubRelease
+      inputs:
+        gitHubConnection: GitHub connection 1
+        repositoryName: Indexyz/xiaomi-r3g-openwrt-build
+        tagSource: manual
+        tag: $(Build.BuildNumber)
+        assets: |
+          releases/*
 
   timeoutInMinutes: 300
