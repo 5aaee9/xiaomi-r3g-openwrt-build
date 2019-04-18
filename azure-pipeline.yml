@@ -5,11 +5,10 @@ jobs:
 
   steps:
     - script: |
-        docker build -t xiaomi-r3g-$(Build.BuildNumber) --build-arg GITHUB_TOKEN=$GITHUB_TOKEN .
-        docker run -d --name xiaomi-r3g-$(Build.BuildNumber) xiaomi-r3g-$(Build.BuildNumber) cat
-        mkdir releases
-        docker cp xiaomi-r3g-$(Build.BuildNumber):/home/openwrt/openwrt/bin/targets/ramips/mt7621/* releases/
-        docker rm -f xiaomi-r3g-$(Build.BuildNumber)
+        docker build -t xiaomi-r3g --build-arg GITHUB_TOKEN=$GITHUB_TOKEN .
+        docker run -d --name xiaomi-r3g xiaomi-r3g cat
+        docker cp xiaomi-r3g:/home/openwrt/openwrt/bin/targets/ramips/mt7621 releases
+        docker rm -f xiaomi-r3g
       displayName: 'Complie'
 
     - task: GitHubRelease@0
