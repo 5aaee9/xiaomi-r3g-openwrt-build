@@ -2,7 +2,7 @@
 set -e
 
 cd ~
-git clone https://github.com/openwrt/openwrt.git -b openwrt-18.06
+git clone https://github.com/openwrt/openwrt.git -b openwrt-21.02
 cd openwrt
 ./scripts/feeds install -a
 ./scripts/feeds update -a
